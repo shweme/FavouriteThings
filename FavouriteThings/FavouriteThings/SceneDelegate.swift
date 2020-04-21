@@ -14,6 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     
     var games: FaveGames = FaveGames()
+    var dataFileName = "FaveThings.txt"
     
     //\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
     //\\\\\\\Creating objects\\\\\\\
@@ -25,6 +26,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
+        
+//        do {
+//          let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+//          let documentFolderURL = urls.first!
+//          let fileURL = documentFolderURL.appendingPathComponent(dataFileName)
+//          let t = try Data(contentsOf: fileURL)
+//          let decoder = JSONDecoder()
+//          games = try decoder.decode(FaveGames.self, from: t)
+//          print(games.name)
+//        } catch {
+//          print("Got \(error)")
+//        }
+        
+        
         games.add(Catan)
         games.add(Unicorns)
         games.add(Hitler)
@@ -34,10 +49,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         // Get the managed object context from the shared persistent container.
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        let context = delegate.persistentContainer.viewContext
 
         // Create the SwiftUI view and set the context as the value for the managedObjectContext environment keyPath.
         // Add `@Environment(\.managedObjectContext)` in the views that will need the context.
+        
+        
         let contentView = ContentView(game: games).environment(\.managedObjectContext, context)
 
         // Use a UIHostingController as window root view controller.
@@ -54,6 +73,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This occurs shortly after the scene enters the background, or when its session is discarded.
         // Release any resources associated with this scene that can be re-created the next time the scene connects.
         // The scene may re-connect later, as its session was not neccessarily discarded (see `application:didDiscardSceneSessions` instead).
+        
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {

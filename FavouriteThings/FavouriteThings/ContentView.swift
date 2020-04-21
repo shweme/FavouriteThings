@@ -7,8 +7,10 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct ContentView: View {
+    @Environment(\.managedObjectContext) var viewContext
     @ObservedObject var game: FaveGames
     @State private var title: String = "Favourite things"
     var body: some View {
@@ -19,7 +21,9 @@ struct ContentView: View {
                 trailing:
                     Button( //button to add a character
                         action: { //adding animation for when a character is added
-                            withAnimation { self.game.add(Games(url: "Default", name: "", players: "", playTime: "", published: "", skills: "", notes: "", field1: "Players", field2: "Play time", field3: "Published", field4: "Skills required")); print(self.game)}
+                            withAnimation { self.game.add(Games(url: "Default", name: "", players: "", playTime: "", published: "", skills: "", notes: "", field1: "Players", field2: "Play time", field3: "Published", field4: "Skills required")); print(self.game)
+                                //Event.create(in: self.viewContext)
+                            }
                     }
                     ) {Image(systemName: "plus")}
             )
