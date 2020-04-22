@@ -10,7 +10,6 @@ import SwiftUI
 
 struct MasterView: View {
     @ObservedObject var game : FaveGames
-    @Binding var title: String
     @Environment(\.editMode) var mode
     var body : some View {
         VStack {
@@ -19,7 +18,7 @@ struct MasterView: View {
                     Text("✎")
                         .font(Font.system(.largeTitle).bold())
                         .foregroundColor(.black)
-                    TextField("Enter text here", text: $title)
+                    TextField("Enter text here", text: $game.title)
                         .font(Font.system(.largeTitle).bold())
                 }
             }
@@ -31,7 +30,7 @@ struct MasterView: View {
                 }.onDelete {indices in self.game.remove(indices)} //to delete the Person at current instance
                     .onMove { (indices, destination) in self.game.games.move(fromOffsets: indices, toOffset: destination) }
             }.frame(width: UIScreen.main.bounds.width-25)
-        }.navigationBarTitle(mode?.wrappedValue == .active ? "" : title)
+        }.navigationBarTitle(mode?.wrappedValue == .active ? "" : game.title)
         
     }
 }

@@ -12,10 +12,9 @@ import CoreData
 struct ContentView: View {
     @Environment(\.managedObjectContext) var viewContext
     @ObservedObject var game: FaveGames
-    @State private var title: String = "Favourite things"
     var body: some View {
         NavigationView {
-            MasterView(game: game, title: $title)
+            MasterView(game: game)
             .navigationBarItems(
                 leading: EditButton(),
                 trailing:
