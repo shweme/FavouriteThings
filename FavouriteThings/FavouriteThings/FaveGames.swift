@@ -11,7 +11,7 @@ import Foundation
 class FaveGames : ObservableObject, Identifiable, Codable {
     
     //pplArray stores an array of instances of class People
-    @Published var games = [Games]()
+    @Published var games: [Games]
     @Published var title: String
     
 //    required init(from decoder: Decoder) throws {
@@ -21,6 +21,7 @@ class FaveGames : ObservableObject, Identifiable, Codable {
     
     init() {
         title = "Favourite Things"
+        games = [Games]()
     }
     
     enum CodingKeys: String, CodingKey {

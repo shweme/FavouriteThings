@@ -18,19 +18,19 @@ func imgDownload(_ img: String) -> Image {
     
     //convert String to a URL
     guard let imgUrl = URL(string: img) else {
-        print("Invalid URL, try another one.")
+        print("Invalid URL.")
         return (Image("Default"))
     }
     
     //download URL data
     guard let imgData = try? Data(contentsOf: imgUrl) else {
-        print("Faulty image, try again.")
+        print("Could not download image.")
         return (Image("Default"))
     }
     
     //convert data into a UIImage
     guard let uiImg = UIImage(data: imgData) else {
-        print("Could not convert, check URL and try again.")
+        print("Downloaded data does not contain image.")
         return (Image("Default"))
     }
     
