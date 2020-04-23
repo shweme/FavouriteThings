@@ -2,6 +2,9 @@
 //  RowItem.swift
 //  FavouriteThings
 //
+//  Populates every row in the list with details specific to the row
+//  Name, image, and the number of people who can play the game.
+//
 //  Created by Shweta Mehta on 17/4/20.
 //  Copyright © 2020 Shweta Mehta. All rights reserved.
 //
@@ -15,7 +18,7 @@ struct RowItem: View {
             rowGame.img
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 100, height: 100, alignment: .leading)
+                .frame(width: 75, height: 75, alignment: .leading)
             Text(self.rowGame.name)
                 .fontWeight(.medium)
                 .frame(alignment: .leading)

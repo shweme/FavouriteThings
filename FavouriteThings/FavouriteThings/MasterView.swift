@@ -2,6 +2,9 @@
 //  MasterView.swift
 //  FavouriteThings
 //
+//  This view creates the delete an move functionality for the app,
+//  as well as puts the details in a list.
+//
 //  Created by Shweta Mehta on 17/4/20.
 //  Copyright © 2020 Shweta Mehta. All rights reserved.
 //

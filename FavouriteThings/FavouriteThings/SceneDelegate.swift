@@ -27,27 +27,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         } catch {
           print("Got \(error)")
         }
-        
-//        game.add(Games(url: "https://i.ebayimg.com/images/g/724AAOSwB-1YyeTu/s-l300.jpg", name: "Settlers of Catan", players: "3 - 4", playTime: "90 - 120 minutes", published: "1995", skills: "Strategy, negotiation", notes: "", field1: "Players", field2: "Play time", field3: "Published", field4: "Skills required"))
-//        game.add(Games(url: "https://contestimg.wish.com/api/webimage/5be12829febb6831319763fb-large.jpg?cache_buster=884fa7d14cdb857bda250f549e82ad24", name: "Unstable Unicorns", players: "2 - 8", playTime: "30 - 45 minutes", published: "2018", skills: "Strategy", notes: "", field1: "Players", field2: "Play time", field3: "Published", field4: "Skills required"))
-//        game.add(Games(url: "https://cf.geekdo-images.com/imagepage/img/lLzsghVIr1cEC6Dii4_GA0ySWpQ=/fit-in/900x600/filters:no_upscale()/pic5164305.jpg", name: "Secret Hitler", players: "5 - 10", playTime: "30 - 60 minutes", published: "2018", skills: "Deception, strategy", notes: "", field1: "Players", field2: "Play time", field3: "Published", field4: "Skills required"))
-        
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         // Get the managed object context from the shared persistent container.
         
         let delegate = UIApplication.shared.delegate as! AppDelegate
         let context = delegate.persistentContainer.viewContext
 
-        // Create the SwiftUI view and set the context as the value for the managedObjectContext environment keyPath.
-        // Add `@Environment(\.managedObjectContext)` in the views that will need the context.
-        
+        // Creating the SwiftUI view and setting the context as the value for the managedObjectContext environment keyPath.
         
         let contentView = ContentView(game: game).environment(\.managedObjectContext, context)
 
-        // Use a UIHostingController as window root view controller.
+        // Using a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             window.rootViewController = UIHostingController(rootView: contentView)
@@ -59,8 +49,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.
-        // Release any resources associated with this scene that can be re-created the next time the scene connects.
-        // The scene may re-connect later, as its session was not neccessarily discarded (see `application:didDiscardSceneSessions` instead).
+        // Releasing all resources associated with this scene that can be re-created the next time the scene connects.
         
         do {
           let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
@@ -72,9 +61,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         } catch {
           print("Got \(error)")
         }
-
-        
-        
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {

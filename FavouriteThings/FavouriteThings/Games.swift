@@ -13,13 +13,11 @@ class Games : ObservableObject, Identifiable, Codable {
     
     @Published var url : String? //stores the url of the image user MIGHT want to download
     
-    //img allows the entered url to be converted to an Image directly without
-    //having to call imgDownload() everytime a picture needs to be displayed
     var img: Image {
-        if let u = url {
-            return imgDownload(u)
-        } else {
+        if url == "Default"{
             return Image("Default")
+        } else {
+            return imgDownload(url ?? "")
         }
     }
     

@@ -2,6 +2,8 @@
 //  DetailView.swift
 //  FavouriteThings
 //
+//  This view is created when the user clicks on a row item.
+//
 //  Created by Shweta Mehta on 17/4/20.
 //  Copyright © 2020 Shweta Mehta. All rights reserved.
 //

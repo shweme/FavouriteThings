@@ -2,6 +2,8 @@
 //  ContentView.swift
 //  FavouriteThings
 //
+//  This View creates a navigation bar and the add functionality.
+//
 //  Created by Shweta Mehta on 17/4/20.
 //  Copyright © 2020 Shweta Mehta. All rights reserved.
 //
