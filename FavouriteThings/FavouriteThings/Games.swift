@@ -19,21 +19,23 @@ class Games : ObservableObject, Identifiable, Codable {
         } else {
             return imgDownload(url ?? "")
         }
-    }
+    } //takes the url entered and converts it into an image if possible. See imgDownload(url) for more information.
     
-    //purely character related information for displaying, all stored as Strings
-    @Published var name: String
-    @Published var players : String
-    @Published var playTime: String
-    @Published var published: String
-    @Published var skills: String
-    @Published var notes: String
+    //purely game related information for displaying, all stored as Strings
+    @Published var name: String //stores the name of the game user enters
+    @Published var players : String //stores the number of players that can play
+    @Published var playTime: String //stores how long each game takes to play in minutes
+    @Published var published: String //stores the year that the game was published
+    @Published var skills: String //stores the skills the user will need to play this game WELL
+    @Published var notes: String //stores any notes the user enters
+    
+    //stores the name for the fields since these are editable now
     @Published var field1: String
     @Published var field2: String
     @Published var field3: String
     @Published var field4: String
     
-    
+    //need keys for encoding/decoding JSON
     enum CodingKeys: String, CodingKey {
         case url
         case name
@@ -48,7 +50,7 @@ class Games : ObservableObject, Identifiable, Codable {
         case field4
     }
     
-    //initialiser for all instance variables of the People class
+    //initialiser for all instance variables of the Games class
     init(url: String?, name: String, players: String, playTime: String, published: String, skills: String, notes: String, field1: String, field2: String, field3: String, field4: String){
         self.url = url
         self.name = name
@@ -63,6 +65,7 @@ class Games : ObservableObject, Identifiable, Codable {
         self.field4 = field4
     }
     
+    //implementing Decoder as required by a Codable class
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.url = try container.decode(String.self, forKey: .url)
@@ -78,6 +81,7 @@ class Games : ObservableObject, Identifiable, Codable {
         self.field4 = try container.decode(String.self, forKey: .field4)
     }
     
+    //implementing Encoder as required by a Codable class
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(url, forKey: .url)

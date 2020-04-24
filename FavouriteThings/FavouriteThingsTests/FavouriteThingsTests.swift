@@ -70,9 +70,9 @@ class ReferenceTests: XCTestCase {
         testFave.title = "Favourite Games"
         
         XCTAssertNotNil(testFave.title)
-        XCTAssertEqual(1, testFave.games.count)
+        XCTAssertEqual(4, testFave.games.count)
         testFave.remove([0])
-        XCTAssertEqual(0, testFave.games.count)
+        XCTAssertEqual(3, testFave.games.count)
     }
     
     func testImageUrl() {
