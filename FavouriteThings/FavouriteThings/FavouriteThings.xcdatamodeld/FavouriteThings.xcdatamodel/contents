@@ -1,4 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16114.2" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="FaveGames" representedClassName="FaveGames" syncable="YES" codeGenerationType="class">
+        <attribute name="title" attributeType="String" defaultValueString="Favourite Games"/>
+        <relationship name="games" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Games" inverseName="games" inverseEntity="Games"/>
+    </entity>
+    <entity name="Games" representedClassName="Games" syncable="YES" codeGenerationType="class">
+        <attribute name="field1" attributeType="String" defaultValueString="Players"/>
+        <attribute name="field2" attributeType="String" defaultValueString="Play time"/>
+        <attribute name="field3" attributeType="String" defaultValueString="Published in"/>
+        <attribute name="field4" attributeType="String" defaultValueString="Skills required"/>
+        <attribute name="name" attributeType="String" defaultValueString=""/>
+        <attribute name="notes" attributeType="String" defaultValueString=""/>
+        <attribute name="players" attributeType="String" defaultValueString=""/>
+        <attribute name="playTime" attributeType="String" defaultValueString=""/>
+        <attribute name="published" attributeType="String" defaultValueString=""/>
+        <attribute name="skills" attributeType="String" defaultValueString=""/>
+        <attribute name="url" optional="YES" attributeType="String"/>
+        <relationship name="games" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FaveGames" inverseName="games" inverseEntity="FaveGames"/>
+    </entity>
+    <elements>
+        <element name="FaveGames" positionX="-54" positionY="72" width="128" height="73"/>
+        <element name="Games" positionX="-63" positionY="-18" width="128" height="223"/>
+    </elements>
 </model>

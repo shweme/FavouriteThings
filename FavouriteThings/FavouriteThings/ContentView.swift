@@ -13,17 +13,20 @@ import CoreData
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) var viewContext
-    @ObservedObject var game: FaveGames
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \FaveGames.title, ascending: true)], animation: .default) var game: FetchedResults<FaveGames>
+
     var body: some View {
         NavigationView {
-            MasterView(game: game)
+            MasterView(game: game.first ?? FaveGames(context: viewContext))
             .navigationBarItems(
                 leading: EditButton(),
                 trailing:
                     Button( //button to add a character
                         action: { //adding animation for when a character is added
-                            withAnimation { self.game.add(Games(url: "Default", name: "", players: "", playTime: "", published: "", skills: "", notes: "", field1: "Players", field2: "Play time", field3: "Published", field4: "Skills required")); print(self.game)
-                                //Event.create(in: self.viewContext)
+                            withAnimation {
+                                let new = Games(context: self.viewContext)
+                                new.games = self.game.first
+                                try? self.viewContext.save()
                             }
                     }
                     ) {Image(systemName: "plus")}

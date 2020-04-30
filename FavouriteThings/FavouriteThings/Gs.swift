@@ -6,6 +6,8 @@
 //  Copyright © 2020 Shweta Mehta. All rights reserved.
 //
 
+/*
+
 import Foundation
 import SwiftUI
 
@@ -99,3 +101,4 @@ class Games : ObservableObject, Identifiable, Codable {
     
 }
 
+*/

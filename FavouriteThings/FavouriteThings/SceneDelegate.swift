@@ -12,30 +12,56 @@ import SwiftUI
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    var game: FaveGames = FaveGames()
-    var dataFileName = "FaveThings.txt"
-
+    //var game: FaveGames = FaveGames()
+    //var dataFileName = "FaveThings.txt"
+    //@FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Games.name, ascending: true)], animation: .default) var fg: FetchedResults<Games>
+    //@FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \FaveGames.title, ascending: true)], animation: .default) var game: FetchedResults<FaveGames>
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        do {
-          let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-          let documentFolderURL = urls.first!
-          let fileURL = documentFolderURL.appendingPathComponent(dataFileName)
-          let t = try Data(contentsOf: fileURL)
-          let decoder = JSONDecoder()
-          game = try decoder.decode(FaveGames.self, from: t)
-        } catch {
-          print("Got \(error)")
-        }
-
+        // Collecting all resources associated with this scene from last time the scene disconnected.
+        //creates a "FaveThings.txt" in the case that there isnt already one.
+        
+// needs to be deleted
+//        do {
+//          let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+//          let documentFolderURL = urls.first!
+//          let fileURL = documentFolderURL.appendingPathComponent(dataFileName)
+//          let t = try Data(contentsOf: fileURL)
+//          let decoder = JSONDecoder()
+//          game = try decoder.decode(FaveGames.self, from: t)
+//        } catch {
+//          print("Got \(error)")
+//        }
+        
         // Get the managed object context from the shared persistent container.
         
         let delegate = UIApplication.shared.delegate as! AppDelegate
         let context = delegate.persistentContainer.viewContext
 
+//        let game = self.game.first ?? FaveGames(context: context)
+//        if game.children.count == 0 {
+//            let sh = Games()
+//            sh.url = "https://cf.geekdo-images.com/imagepage/img/lLzsghVIr1cEC6Dii4_GA0ySWpQ=/fit-in/900x600/filters:no_upscale()/pic5164305.jpg"
+//            sh.name = "Secret Hitler"
+//            sh.players = "5 - 10"
+//            sh.playTime = "20 - 30 minutes"
+//            sh.published = "2013"
+//            sh.skills = "Strategy, Deception"
+//            sh.notes = "Can play with upto 15 players with homemade extensions."
+//            sh.field1 = "Players"
+//            sh.field2 = "Play time"
+//            sh.field3 = "Published in"
+//            sh.field4 = "Skills required"
+//
+//        }
+        
+        
+        
+        
         // Creating the SwiftUI view and setting the context as the value for the managedObjectContext environment keyPath.
         
-        let contentView = ContentView(game: game).environment(\.managedObjectContext, context)
+        let contentView = ContentView().environment(\.managedObjectContext, context)
 
         // Using a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
@@ -50,17 +76,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.
         // Releasing all resources associated with this scene that can be re-created the next time the scene connects.
-        
-        do {
-          let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-          let documentFolderURL = urls.first!
-          let fileURL = documentFolderURL.appendingPathComponent(dataFileName)
-          let json = JSONEncoder()
-          let data = try json.encode(game)
-          try data.write(to: fileURL)
-        } catch {
-          print("Got \(error)")
-        }
+
+//needs to be deleted
+//        do {
+//          let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+//          let documentFolderURL = urls.first!
+//          let fileURL = documentFolderURL.appendingPathComponent(dataFileName)
+//          let json = JSONEncoder()
+//          let data = try json.encode(game)
+//          try data.write(to: fileURL)
+//        } catch {
+//          print("Got \(error)")
+//        }
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
@@ -84,15 +111,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
 
         // Save changes in the application's managed object context when the application transitions to the background.
-        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+        guard let delegate = UIApplication.shared.delegate as? AppDelegate else {
+            fatalError()
+        }
+        delegate.saveContext()
     }
 
 
-}
-
-
-struct SceneDelegate_Previews: PreviewProvider {
-    static var previews: some View {
-        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
-    }
 }

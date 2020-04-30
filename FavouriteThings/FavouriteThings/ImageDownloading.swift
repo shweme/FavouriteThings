@@ -16,6 +16,10 @@ import SwiftUI
 
 func imgDownload(_ img: String) -> Image {
     
+    if img == "Default" {
+        return Image("Default")
+    }
+    
     //convert String to a URL
     guard let imgUrl = URL(string: img) else {
         print("Invalid URL.")

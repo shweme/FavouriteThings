@@ -13,52 +13,73 @@ import SwiftUI
 struct DetailView: View {
     @ObservedObject var game: Games //singular instance of People containing data of character
     @State var tUrl: String = "" //temporary variable to hold user-entered URL
+    @Environment(\.managedObjectContext) var viewContext
     
     var body: some View {
         ScrollView(.vertical){ //To enable scrolling on portrait and landscape orientation
             VStack() {
                 //Image display and edit field
-                TextField("Enter url to load picture", text: $tUrl, onCommit: {
+                TextField("Enter url to load picture", text: $tUrl, onEditingChanged: {
+                    _ in try? self.viewContext.save()
+                }, onCommit: {
                     self.game.url = self.tUrl
                 })//binding placeholder text to retain changes through navigation
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .foregroundColor(.gray)
-                game.img
+                imgDownload(game.url ?? "")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 350, height: 350, alignment: .center)
                     .multilineTextAlignment(.center)
 
-                TextField("Game's name", text: $game.name)
+                TextField("Game's name", text: $game.boundName, onEditingChanged: {
+                    _ in try? self.viewContext.save()
+                })
                     .font(Font.system(.largeTitle).bold())
                     .multilineTextAlignment(.center)
                 
                 
                 HStack { //contains fixed field nation and referenced field native home of character
-                    TextField("Field type", text: $game.field1)
+                    TextField("Field type", text: $game.boundField1, onEditingChanged: {
+                        _ in try? self.viewContext.save()
+                    })
                         .frame(width: 120)
-                    TextField("Field information", text: $game.players)//binding placeholder text to retain changes through navigation
+                    TextField("Field information", text: $game.boundPlayers, onEditingChanged: {
+                        _ in try? self.viewContext.save()
+                    })//binding placeholder text to retain changes through navigation
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                 }
                 
                 HStack { //contains fixed field powers and referenced field powers of character
-                    TextField("Field type", text: $game.field2)
+                    TextField("Field type", text: $game.boundField2, onEditingChanged: {
+                        _ in try? self.viewContext.save()
+                    })
                         .frame(width: 120)
-                    TextField("Field information", text: $game.playTime)//binding placeholder text to retain changes through navigation
+                    TextField("Field information", text: $game.boundPlayTime, onEditingChanged: {
+                        _ in try? self.viewContext.save()
+                    })//binding placeholder text to retain changes through navigation
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                 }
                 
                 HStack { //contains fixed field voiced by and referenced field name of character's voice actor
-                    TextField("Field type", text: $game.field3)
+                    TextField("Field type", text: $game.boundField3, onEditingChanged: {
+                        _ in try? self.viewContext.save()
+                    })
                         .frame(width: 120)
-                    TextField("Field information", text: $game.published)//binding placeholder text to retain changes through navigation
+                    TextField("Field information", text: $game.boundPublished, onEditingChanged: {
+                        _ in try? self.viewContext.save()
+                    })//binding placeholder text to retain changes through navigation
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                 }
                 
                 HStack { //contains fixed field voiced by and referenced field name of character's voice actor
-                    TextField("Field type", text: $game.field4)
+                    TextField("Field type", text: $game.boundField4, onEditingChanged: {
+                        _ in try? self.viewContext.save()
+                    })
                         .frame(width: 120)
-                    TextField("Field information", text: $game.skills)//binding placeholder text to retain changes through navigation
+                    TextField("Field information", text: $game.boundSkills, onEditingChanged: {
+                        _ in try? self.viewContext.save()
+                    })//binding placeholder text to retain changes through navigation
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                 }
                 Spacer(minLength: 25)
@@ -66,15 +87,11 @@ struct DetailView: View {
                     .font(.body)
                     .fontWeight(.medium)
                     .multilineTextAlignment(.center)
-                TextField("Insert text here", text: $game.notes)
+                TextField("Insert text here", text: $game.boundNotes, onEditingChanged: {
+                    _ in try? self.viewContext.save()
+                })
                     .textFieldStyle(RoundedBorderTextFieldStyle())
             } .frame(width: UIScreen.main.bounds.width-50, alignment: .center )
         }
-    }
-}
-
-struct DetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailView(game: Games(url: "Default", name: "Secret Hitler", players: "5 - 10", playTime: "30 - 60 minutes", published: "2018", skills: "Deception, strategy", notes: "", field1: "Players", field2: "Play time", field3: "Published", field4: "Skills required"))
     }
 }

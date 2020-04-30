@@ -6,6 +6,9 @@
 //  Copyright © 2020 Shweta Mehta. All rights reserved.
 //
 
+
+/*
+
 import Foundation
 
 class FaveGames : ObservableObject, Identifiable, Codable {
@@ -52,3 +55,4 @@ class FaveGames : ObservableObject, Identifiable, Codable {
         print(games)
     }
 }
+*/
