@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftUI
+import CoreData
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -15,46 +16,73 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     //var game: FaveGames = FaveGames()
     //var dataFileName = "FaveThings.txt"
     //@FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Games.name, ascending: true)], animation: .default) var fg: FetchedResults<Games>
-    //@FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \FaveGames.title, ascending: true)], animation: .default) var game: FetchedResults<FaveGames>
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        // Collecting all resources associated with this scene from last time the scene disconnected.
-        //creates a "FaveThings.txt" in the case that there isnt already one.
-        
-// needs to be deleted
-//        do {
-//          let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-//          let documentFolderURL = urls.first!
-//          let fileURL = documentFolderURL.appendingPathComponent(dataFileName)
-//          let t = try Data(contentsOf: fileURL)
-//          let decoder = JSONDecoder()
-//          game = try decoder.decode(FaveGames.self, from: t)
-//        } catch {
-//          print("Got \(error)")
-//        }
-        
+
+
         // Get the managed object context from the shared persistent container.
         
         let delegate = UIApplication.shared.delegate as! AppDelegate
         let context = delegate.persistentContainer.viewContext
 
-//        let game = self.game.first ?? FaveGames(context: context)
-//        if game.children.count == 0 {
-//            let sh = Games()
-//            sh.url = "https://cf.geekdo-images.com/imagepage/img/lLzsghVIr1cEC6Dii4_GA0ySWpQ=/fit-in/900x600/filters:no_upscale()/pic5164305.jpg"
-//            sh.name = "Secret Hitler"
-//            sh.players = "5 - 10"
-//            sh.playTime = "20 - 30 minutes"
-//            sh.published = "2013"
-//            sh.skills = "Strategy, Deception"
-//            sh.notes = "Can play with upto 15 players with homemade extensions."
-//            sh.field1 = "Players"
-//            sh.field2 = "Play time"
-//            sh.field3 = "Published in"
-//            sh.field4 = "Skills required"
-//
-//        }
+        var fg = [FaveGames]()
+        let req = NSFetchRequest<FaveGames>(entityName: "FaveGames")
+
+        do {
+            fg = try context.fetch(req)
+            if fg.count == 0 {
+                NSEntityDescription.insertNewObject(forEntityName: "FaveGames", into: context)
+                fg = try context.fetch(req)
+                
+                var sh = Games(context: context)
+                sh.games = fg.first
+                sh.url = "https://cf.geekdo-images.com/imagepage/img/lLzsghVIr1cEC6Dii4_GA0ySWpQ=/fit-in/900x600/filters:no_upscale()/pic5164305.jpg"
+                sh.name = "Secret Hitler"
+                sh.players = "5 - 10"
+                sh.playTime = "20 - 30 minutes"
+                sh.published = "2013"
+                sh.skills = "Strategy, Deception"
+                sh.notes = "Can play with upto 15 players with homemade extensions."
+                sh.field1 = "Players"
+                sh.field2 = "Play time"
+                sh.field3 = "Published in"
+                sh.field4 = "Skills required"
+                
+                sh = Games(context: context)
+                sh.games = fg.first
+                sh.url = "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSrN8urwpwCWMwTmeU9xLhMmYVkwXA04GQPZxNLh6DGikLasv_n&usqp=CAU"
+                sh.name = "Settlers of Catan"
+                sh.players = "2 - 4"
+                sh.playTime = "90 - 120 minutes"
+                sh.published = "1995"
+                sh.skills = "Strategy, Negotiation"
+                sh.notes = "Place first two houses and roads around resources with numbers between 5 & 10"
+                sh.field1 = "Players"
+                sh.field2 = "Play time"
+                sh.field3 = "Published in"
+                sh.field4 = "Skills required"
+                
+                sh = Games(context: context)
+                sh.games = fg.first
+                sh.url = "https://contestimg.wish.com/api/webimage/5be12829febb6831319763fb-large.jpg?cache_buster=884fa7d14cdb857bda250f549e82ad24"
+                sh.name = "Unstable Unicorns"
+                sh.players = "2 - 8"
+                sh.playTime = "30 - 45 minutes"
+                sh.published = "2018"
+                sh.skills = "Strategy"
+                sh.notes = "Check out the multitude of extensions it has!"
+                sh.field1 = "Players"
+                sh.field2 = "Play time"
+                sh.field3 = "Published in"
+                sh.field4 = "Skills required"
+                try? context.save()
+            }
+        } catch {
+            print("Got \(error)")
+        }
+        
+        
         
         
         
