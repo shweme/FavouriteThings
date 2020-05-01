@@ -13,28 +13,25 @@ import CoreData
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    //var game: FaveGames = FaveGames()
-    //var dataFileName = "FaveThings.txt"
-    //@FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Games.name, ascending: true)], animation: .default) var fg: FetchedResults<Games>
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-
-
         // Get the managed object context from the shared persistent container.
         
         let delegate = UIApplication.shared.delegate as! AppDelegate
         let context = delegate.persistentContainer.viewContext
 
+        //Creating link to FaveGames
         var fg = [FaveGames]()
         let req = NSFetchRequest<FaveGames>(entityName: "FaveGames")
 
         do {
             fg = try context.fetch(req)
-            if fg.count == 0 {
+            if fg.count == 0 { //if there is no content, creating and loading default data
                 NSEntityDescription.insertNewObject(forEntityName: "FaveGames", into: context)
                 fg = try context.fetch(req)
                 
+                //Secret Hitler
                 var sh = Games(context: context)
                 sh.games = fg.first
                 sh.url = "https://cf.geekdo-images.com/imagepage/img/lLzsghVIr1cEC6Dii4_GA0ySWpQ=/fit-in/900x600/filters:no_upscale()/pic5164305.jpg"
@@ -49,6 +46,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 sh.field3 = "Published in"
                 sh.field4 = "Skills required"
                 
+                //Settlers of Catan
                 sh = Games(context: context)
                 sh.games = fg.first
                 sh.url = "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSrN8urwpwCWMwTmeU9xLhMmYVkwXA04GQPZxNLh6DGikLasv_n&usqp=CAU"
@@ -63,6 +61,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 sh.field3 = "Published in"
                 sh.field4 = "Skills required"
                 
+                //Unstable Unicorns
                 sh = Games(context: context)
                 sh.games = fg.first
                 sh.url = "https://contestimg.wish.com/api/webimage/5be12829febb6831319763fb-large.jpg?cache_buster=884fa7d14cdb857bda250f549e82ad24"
@@ -83,10 +82,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         
         
-        
-        
-        
-        
         // Creating the SwiftUI view and setting the context as the value for the managedObjectContext environment keyPath.
         
         let contentView = ContentView().environment(\.managedObjectContext, context)
@@ -104,18 +99,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.
         // Releasing all resources associated with this scene that can be re-created the next time the scene connects.
-
-//needs to be deleted
-//        do {
-//          let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-//          let documentFolderURL = urls.first!
-//          let fileURL = documentFolderURL.appendingPathComponent(dataFileName)
-//          let json = JSONEncoder()
-//          let data = try json.encode(game)
-//          try data.write(to: fileURL)
-//        } catch {
-//          print("Got \(error)")
-//        }
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {

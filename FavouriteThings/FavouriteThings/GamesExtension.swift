@@ -7,7 +7,8 @@
 //
 
 import CoreData
-
+ 
+//allows CoreData optionals to be unwrapped for entity Games
 extension Games {
     var boundName: String {
         get { name ?? "" }

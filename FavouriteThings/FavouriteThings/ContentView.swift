@@ -21,8 +21,8 @@ struct ContentView: View {
             .navigationBarItems(
                 leading: EditButton(),
                 trailing:
-                    Button( //button to add a character
-                        action: { //adding animation for when a character is added
+                    Button( //button to add a game
+                        action: { //adding animation for when a new entry is created
                             withAnimation {
                                 let new = Games(context: self.viewContext)
                                 new.games = self.game.first
@@ -32,23 +32,5 @@ struct ContentView: View {
                     ) {Image(systemName: "plus")}
             )
         }.navigationViewStyle(StackNavigationViewStyle())
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            Text("Favourite Things")
-                .navigationBarTitle(Text("Favourite Things"), displayMode: .automatic)
-                .navigationBarItems(
-                    leading: EditButton(),
-                    trailing:
-                        Button(
-                            action: { print("Adding a game") },
-                            label: { Text("+").font(.largeTitle)}
-                        )
-                )
-        }
-
     }
 }

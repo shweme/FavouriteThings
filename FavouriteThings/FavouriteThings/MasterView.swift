@@ -19,7 +19,7 @@ struct MasterView: View {
     var body : some View {
         VStack {
             if mode?.wrappedValue == .active{
-                HStack {
+                HStack { //displaying and editing Title and saving it to FaveGames model
                     Text("✎")
                         .font(Font.system(.largeTitle).bold())
                         .foregroundColor(.black)
@@ -29,7 +29,7 @@ struct MasterView: View {
                         .font(Font.system(.largeTitle).bold())
                 }
             }
-            List {
+            List { //displaying all games in stored array of Games
                 ForEach(game.children, id: \.self)  { item in
                     NavigationLink(destination: DetailView(game: item)){
                         RowItem(rowGame: item)
