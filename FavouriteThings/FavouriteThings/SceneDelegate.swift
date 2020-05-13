@@ -45,36 +45,51 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 sh.field2 = "Play time"
                 sh.field3 = "Published in"
                 sh.field4 = "Skills required"
-                
+                let l = Location(context: context)
+                l.locationName = "Netherworld"
+                l.latitudeString = "0.0"
+                l.longitudeString = "0.0"
+                //l.availabilityLocation = sh
+            
                 //Settlers of Catan
-                sh = Games(context: context)
-                sh.games = fg.first
-                sh.url = "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSrN8urwpwCWMwTmeU9xLhMmYVkwXA04GQPZxNLh6DGikLasv_n&usqp=CAU"
-                sh.name = "Settlers of Catan"
-                sh.players = "2 - 4"
-                sh.playTime = "90 - 120 minutes"
-                sh.published = "1995"
-                sh.skills = "Strategy, Negotiation"
-                sh.notes = "Place first two houses and roads around resources with numbers between 5 & 10"
-                sh.field1 = "Players"
-                sh.field2 = "Play time"
-                sh.field3 = "Published in"
-                sh.field4 = "Skills required"
+                var sc = Games(context: context)
+                sc.games = fg.first
+                sc.url = "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSrN8urwpwCWMwTmeU9xLhMmYVkwXA04GQPZxNLh6DGikLasv_n&usqp=CAU"
+                sc.name = "Settlers of Catan"
+                sc.players = "2 - 4"
+                sc.playTime = "90 - 120 minutes"
+                sc.published = "1995"
+                sc.skills = "Strategy, Negotiation"
+                sc.notes = "Place first two houses and roads around resources with numbers between 5 & 10"
+                sc.field1 = "Players"
+                sc.field2 = "Play time"
+                sc.field3 = "Published in"
+                sc.field4 = "Skills required"
+                let lo = Location(context: context)
+                lo.locationName = "Netherworld"
+                lo.latitudeString = "0.0"
+                lo.longitudeString = "0.0"
+                //lo.availabilityLocation = sc
                 
                 //Unstable Unicorns
-                sh = Games(context: context)
-                sh.games = fg.first
-                sh.url = "https://contestimg.wish.com/api/webimage/5be12829febb6831319763fb-large.jpg?cache_buster=884fa7d14cdb857bda250f549e82ad24"
-                sh.name = "Unstable Unicorns"
-                sh.players = "2 - 8"
-                sh.playTime = "30 - 45 minutes"
-                sh.published = "2018"
-                sh.skills = "Strategy"
-                sh.notes = "Check out the multitude of extensions it has!"
-                sh.field1 = "Players"
-                sh.field2 = "Play time"
-                sh.field3 = "Published in"
-                sh.field4 = "Skills required"
+                var uu = Games(context: context)
+                uu.games = fg.first
+                uu.url = "https://contestimg.wish.com/api/webimage/5be12829febb6831319763fb-large.jpg?cache_buster=884fa7d14cdb857bda250f549e82ad24"
+                uu.name = "Unstable Unicorns"
+                uu.players = "2 - 8"
+                uu.playTime = "30 - 45 minutes"
+                uu.published = "2018"
+                uu.skills = "Strategy"
+                uu.notes = "Check out the multitude of extensions it has!"
+                uu.field1 = "Players"
+                uu.field2 = "Play time"
+                uu.field3 = "Published in"
+                uu.field4 = "Skills required"
+                let loc = Location(context: context)
+                loc.locationName = "Netherworld"
+                loc.latitudeString = "0.0"
+                loc.longitudeString = "0.0"
+                //loc.availabilityLocation = uu
                 try? context.save()
             }
         } catch {

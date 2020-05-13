@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16114.2" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19C57" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="FaveGames" representedClassName="FaveGames" syncable="YES" codeGenerationType="class">
         <attribute name="title" attributeType="String" defaultValueString="Favourite Games"/>
         <relationship name="games" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Games" inverseName="games" inverseEntity="Games"/>
@@ -16,10 +16,18 @@
         <attribute name="published" attributeType="String" defaultValueString=""/>
         <attribute name="skills" attributeType="String" defaultValueString=""/>
         <attribute name="url" optional="YES" attributeType="String"/>
+        <relationship name="availabilityLocation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="availabilityLocation" inverseEntity="Location"/>
         <relationship name="games" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FaveGames" inverseName="games" inverseEntity="FaveGames"/>
     </entity>
+    <entity name="Location" representedClassName="Location" syncable="YES" codeGenerationType="class">
+        <attribute name="latitudeString" attributeType="String" defaultValueString=""/>
+        <attribute name="locationName" attributeType="String" defaultValueString=""/>
+        <attribute name="longitudeString" attributeType="String" defaultValueString=""/>
+        <relationship name="availabilityLocation" optional="YES" maxCount="1" deletionRule="Nullify" ordered="YES" destinationEntity="Games" inverseName="availabilityLocation" inverseEntity="Games"/>
+    </entity>
     <elements>
-        <element name="FaveGames" positionX="-54" positionY="72" width="128" height="73"/>
-        <element name="Games" positionX="-63" positionY="-18" width="128" height="223"/>
+        <element name="FaveGames" positionX="-99.68359375" positionY="236.80078125" width="128" height="73"/>
+        <element name="Games" positionX="-399.51171875" positionY="72.68359375" width="128" height="238"/>
+        <element name="Location" positionX="-95.8515625" positionY="77.0234375" width="128" height="103"/>
     </elements>
 </model>

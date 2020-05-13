@@ -31,7 +31,7 @@ struct DetailView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 350, height: 350, alignment: .center)
                     .multilineTextAlignment(.center)
-
+                
                 TextField("Game's name", text: $game.boundName, onEditingChanged: {
                     _ in try? self.viewContext.save()
                 })
@@ -82,15 +82,20 @@ struct DetailView: View {
                     })//binding placeholder text to retain changes through navigation
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                 }
+                NavigationLink(destination: LocationView(location: game.availabilityLocation ?? Location(context: viewContext))) {
+                    Text("View a Map of where to Buy ThiS GAME")
+                }
+                
                 Spacer(minLength: 25)
+                VStack {
                 Text("Notes:\t\t")
                     .font(.body)
                     .fontWeight(.medium)
                     .multilineTextAlignment(.center)
                 TextField("Insert text here", text: $game.boundNotes, onEditingChanged: {
                     _ in try? self.viewContext.save()
-                })
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                }) .textFieldStyle(RoundedBorderTextFieldStyle())
+                }
             } .frame(width: UIScreen.main.bounds.width-50, alignment: .center )
         }
     }
