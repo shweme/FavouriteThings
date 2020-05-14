@@ -15,10 +15,10 @@ struct LocationView: View {
     @State var currentPosition = CLLocationCoordinate2D()
     var body: some View {
         VStack{
-            
+            MapView(location: location)
             HStack{
                 Text("Name")
-                TextField("Enter location name", text: self.$location.boundName, onCommit: {
+                TextField("Enter location name", text: self.$location.boundName, onEditingChanged: { _ in try? self.viewContext.save() }, onCommit: {
                     let geoCoder = CLGeocoder()
                     let region =  CLCircularRegion(center: self.currentPosition, radius: 2_000_000, identifier: "\(self.currentPosition)")
                     geoCoder.geocodeAddressString(self.location.boundName, in: region) { (placemarks, error) in

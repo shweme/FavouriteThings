@@ -16,14 +16,14 @@
         <attribute name="published" attributeType="String" defaultValueString=""/>
         <attribute name="skills" attributeType="String" defaultValueString=""/>
         <attribute name="url" optional="YES" attributeType="String"/>
-        <relationship name="availabilityLocation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="availabilityLocation" inverseEntity="Location"/>
+        <relationship name="availabilityLocation" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="availabilityLocation" inverseEntity="Location"/>
         <relationship name="games" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FaveGames" inverseName="games" inverseEntity="FaveGames"/>
     </entity>
     <entity name="Location" representedClassName="Location" syncable="YES" codeGenerationType="class">
-        <attribute name="latitudeString" attributeType="String" defaultValueString=""/>
-        <attribute name="locationName" attributeType="String" defaultValueString=""/>
-        <attribute name="longitudeString" attributeType="String" defaultValueString=""/>
-        <relationship name="availabilityLocation" optional="YES" maxCount="1" deletionRule="Nullify" ordered="YES" destinationEntity="Games" inverseName="availabilityLocation" inverseEntity="Games"/>
+        <attribute name="latitudeString" attributeType="String" defaultValueString="-27.4559082"/>
+        <attribute name="locationName" attributeType="String" defaultValueString="186 Brunswick St, Fortitude Valley QLD 4006"/>
+        <attribute name="longitudeString" attributeType="String" defaultValueString="153.0320233"/>
+        <relationship name="availabilityLocation" maxCount="1" deletionRule="Nullify" ordered="YES" destinationEntity="Games" inverseName="availabilityLocation" inverseEntity="Games"/>
     </entity>
     <elements>
         <element name="FaveGames" positionX="-99.68359375" positionY="236.80078125" width="128" height="73"/>

@@ -30,9 +30,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             if fg.count == 0 { //if there is no content, creating and loading default data
                 NSEntityDescription.insertNewObject(forEntityName: "FaveGames", into: context)
                 fg = try context.fetch(req)
-                
                 //Secret Hitler
-                var sh = Games(context: context)
+                let sh = Games(context: context)
                 sh.games = fg.first
                 sh.url = "https://cf.geekdo-images.com/imagepage/img/lLzsghVIr1cEC6Dii4_GA0ySWpQ=/fit-in/900x600/filters:no_upscale()/pic5164305.jpg"
                 sh.name = "Secret Hitler"
@@ -46,13 +45,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 sh.field3 = "Published in"
                 sh.field4 = "Skills required"
                 let l = Location(context: context)
-                l.locationName = "Netherworld"
+                //l.availabilityLocation = sh
+                l.locationName = "186 Brunswick St, Fortitude Valley QLD 4006"
                 l.latitudeString = "0.0"
                 l.longitudeString = "0.0"
-                //l.availabilityLocation = sh
+                
             
                 //Settlers of Catan
-                var sc = Games(context: context)
+                let sc = Games(context: context)
                 sc.games = fg.first
                 sc.url = "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSrN8urwpwCWMwTmeU9xLhMmYVkwXA04GQPZxNLh6DGikLasv_n&usqp=CAU"
                 sc.name = "Settlers of Catan"
@@ -66,13 +66,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 sc.field3 = "Published in"
                 sc.field4 = "Skills required"
                 let lo = Location(context: context)
-                lo.locationName = "Netherworld"
+                //lo.availabilityLocation = sc
+                lo.locationName = "186 Brunswick St, Fortitude Valley QLD 4006"
                 lo.latitudeString = "0.0"
                 lo.longitudeString = "0.0"
-                //lo.availabilityLocation = sc
+                
                 
                 //Unstable Unicorns
-                var uu = Games(context: context)
+                let uu = Games(context: context)
                 uu.games = fg.first
                 uu.url = "https://contestimg.wish.com/api/webimage/5be12829febb6831319763fb-large.jpg?cache_buster=884fa7d14cdb857bda250f549e82ad24"
                 uu.name = "Unstable Unicorns"
@@ -86,10 +87,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 uu.field3 = "Published in"
                 uu.field4 = "Skills required"
                 let loc = Location(context: context)
-                loc.locationName = "Netherworld"
+                //loc.availabilityLocation = uu
+                loc.locationName = "186 Brunswick St, Fortitude Valley QLD 4006"
                 loc.latitudeString = "0.0"
                 loc.longitudeString = "0.0"
-                //loc.availabilityLocation = uu
+                
                 try? context.save()
             }
         } catch {

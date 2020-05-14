@@ -8,6 +8,7 @@
 
 import CoreData
 import CoreLocation
+import MapKit
 
 extension Location {
     
@@ -25,7 +26,5 @@ extension Location {
         get { longitudeString ?? "" }
         set { longitudeString = newValue }
     }
-    
-    
     
 }
