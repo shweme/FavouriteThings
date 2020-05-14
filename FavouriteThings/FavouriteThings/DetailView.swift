@@ -12,7 +12,7 @@ import SwiftUI
 
 struct DetailView: View {
     @ObservedObject var game: Games //singular instance of People containing data of character
-    //@ObservedObject var keyboard = KeyboardClass()
+    @ObservedObject var keyboard = Keyboard()
     @State var tUrl: String = "" //temporary variable to hold user-entered URL
     @Environment(\.managedObjectContext) var viewContext
     
@@ -98,6 +98,6 @@ struct DetailView: View {
                 }) .textFieldStyle(RoundedBorderTextFieldStyle())
                 }
             } .frame(width: UIScreen.main.bounds.width-50, alignment: .center )
-        } //.offset(x: 0, y: CGFloat(-keyboard.h))
+        } .offset(x: 0, y: CGFloat(-keyboard.h))
     }
 }

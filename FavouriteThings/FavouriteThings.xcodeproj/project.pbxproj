@@ -30,6 +30,7 @@
 		DFD87F10246BC24900284B1B /* LocationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD87F0F246BC24900284B1B /* LocationExtension.swift */; };
 		DFD87F12246CF37100284B1B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFD87F11246CF37100284B1B /* MapKit.framework */; };
 		DFD87F14246D073D00284B1B /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD87F13246D073D00284B1B /* MapView.swift */; };
+		DFD87F16246D1D0300284B1B /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD87F15246D1D0200284B1B /* Keyboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		DFD87F0F246BC24900284B1B /* LocationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationExtension.swift; sourceTree = "<group>"; };
 		DFD87F11246CF37100284B1B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		DFD87F13246D073D00284B1B /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		DFD87F15246D1D0200284B1B /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 				ADAB9B84245A8C410048B0B3 /* FaveGamesExtensions.swift */,
 				DFD87F0F246BC24900284B1B /* LocationExtension.swift */,
 				AD66A45D2449428600361BF8 /* ImageDownloading.swift */,
+				DFD87F15246D1D0200284B1B /* Keyboard.swift */,
 				AD66A45B2449424500361BF8 /* Gs.swift */,
 				AD66A45F2449447A00361BF8 /* FGs.swift */,
 				AD66A4362449417C00361BF8 /* LaunchScreen.storyboard */,
@@ -330,6 +333,7 @@
 				AD0D043A245A88F900596BEB /* FavouriteThings.xcdatamodeld in Sources */,
 				AD66A46624494DA500361BF8 /* DetailView.swift in Sources */,
 				AD66A4302449417B00361BF8 /* ContentView.swift in Sources */,
+				DFD87F16246D1D0300284B1B /* Keyboard.swift in Sources */,
 				AD66A45E2449428600361BF8 /* ImageDownloading.swift in Sources */,
 				ADAB9B85245A8C410048B0B3 /* FaveGamesExtensions.swift in Sources */,
 				AD66A46424494CBE00361BF8 /* RowItem.swift in Sources */,

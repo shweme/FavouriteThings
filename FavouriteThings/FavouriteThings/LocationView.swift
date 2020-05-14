@@ -14,9 +14,10 @@ struct LocationView: View {
     @Environment(\.managedObjectContext) var viewContext
     @State var currentPosition = CLLocationCoordinate2D()
     var body: some View {
-        VStack{
+        VStack {
             MapView(location: location)
-            HStack{
+                .frame(width:UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/3, alignment: .top)
+            HStack (alignment: .top){
                 Text("Name")
                 TextField("Enter location name", text: self.$location.boundName, onEditingChanged: { _ in try? self.viewContext.save() }, onCommit: {
                     let geoCoder = CLGeocoder()
@@ -76,6 +77,6 @@ struct LocationView: View {
                     }
                 })
             }
-        }
+            Spacer()        }
     }
 }
