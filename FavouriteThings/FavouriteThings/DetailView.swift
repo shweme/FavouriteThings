@@ -19,6 +19,7 @@ struct DetailView: View {
     var body: some View {
         ScrollView(.vertical){ //To enable scrolling on portrait and landscape orientation
             VStack() {
+                
                 //Image display and edit field
                 TextField("Enter url to load picture", text: $tUrl, onEditingChanged: {
                     _ in try? self.viewContext.save()
@@ -33,13 +34,14 @@ struct DetailView: View {
                     .frame(width: 350, height: 350, alignment: .center)
                     .multilineTextAlignment(.center)
                 
+                //Name of the Game
                 TextField("Game's name", text: $game.boundName, onEditingChanged: {
                     _ in try? self.viewContext.save()
                 })
                     .font(Font.system(.largeTitle).bold())
                     .multilineTextAlignment(.center)
                 
-                
+                //Field 1 type and info
                 HStack { //contains fixed field nation and referenced field native home of character
                     TextField("Field type", text: $game.boundField1, onEditingChanged: {
                         _ in try? self.viewContext.save()
@@ -51,6 +53,7 @@ struct DetailView: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                 }
                 
+                //Field2 type and info
                 HStack { //contains fixed field powers and referenced field powers of character
                     TextField("Field type", text: $game.boundField2, onEditingChanged: {
                         _ in try? self.viewContext.save()
@@ -62,6 +65,7 @@ struct DetailView: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                 }
                 
+                //Field3 type and info
                 HStack { //contains fixed field voiced by and referenced field name of character's voice actor
                     TextField("Field type", text: $game.boundField3, onEditingChanged: {
                         _ in try? self.viewContext.save()
@@ -73,6 +77,8 @@ struct DetailView: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                 }
                 
+                
+                //Field4 type and info
                 HStack { //contains fixed field voiced by and referenced field name of character's voice actor
                     TextField("Field type", text: $game.boundField4, onEditingChanged: {
                         _ in try? self.viewContext.save()
@@ -83,11 +89,15 @@ struct DetailView: View {
                     })//binding placeholder text to retain changes through navigation
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                 }
+                
+                //Navigation link to location that this game is available at
                 NavigationLink(destination: LocationView(location: game.availabilityLocation ?? Location(context: viewContext))) {
                     Text("View a Map of where to Buy ThiS GAME")
                 }
                 
                 Spacer(minLength: 25)
+                
+                //Notes field
                 VStack {
                 Text("Notes:\t\t")
                     .font(.body)

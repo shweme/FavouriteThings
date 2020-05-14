@@ -12,7 +12,7 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) var viewContext
+    @Environment(\.managedObjectContext) var viewContext //to load scene context and save any changes
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \FaveGames.title, ascending: true)], animation: .default) var game: FetchedResults<FaveGames>
 
     var body: some View {
@@ -21,9 +21,12 @@ struct ContentView: View {
             .navigationBarItems(
                 leading: EditButton(),
                 trailing:
-                    Button( //button to add a game
-                        action: { //adding animation for when a new entry is created
+                    Button(
+                        //button to add a game
+                        action: {
+                            //adding animation for when a new entry is created
                             withAnimation {
+                                //creating new entry
                                 let new = Games(context: self.viewContext)
                                 new.games = self.game.first
                                 try? self.viewContext.save()

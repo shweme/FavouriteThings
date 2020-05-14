@@ -2,6 +2,8 @@
 //  Keyboard.swift
 //  FavouriteThings
 //
+//  This class should make the keyboard not cover any text fields when it is active.
+//
 //  Created by Shweta Mehta on 14/5/20.
 //  Copyright © 2020 Shweta Mehta. All rights reserved.
 //

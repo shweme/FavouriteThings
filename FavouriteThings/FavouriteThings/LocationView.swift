@@ -2,6 +2,8 @@
 //  LocationView.swift
 //  FavouriteThings
 //
+//  This view contains a map of the location as well as the address, longitude and latitude
+//
 //  Created by Shweta Mehta on 13/5/20.
 //  Copyright © 2020 Shweta Mehta. All rights reserved.
 //
@@ -15,11 +17,16 @@ struct LocationView: View {
     @State var currentPosition = CLLocationCoordinate2D()
     var body: some View {
         VStack {
+            
+            //displays map
             MapView(location: location)
                 .frame(width:UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/3, alignment: .top)
             HStack (alignment: .top){
+                
+                //displays address
                 Text("Name")
                 TextField("Enter location name", text: self.$location.boundName, onEditingChanged: { _ in try? self.viewContext.save() }, onCommit: {
+                    //auto-update map, longitude, and latitude when address is updated
                     let geoCoder = CLGeocoder()
                     let region =  CLCircularRegion(center: self.currentPosition, radius: 2_000_000, identifier: "\(self.currentPosition)")
                     geoCoder.geocodeAddressString(self.location.boundName, in: region) { (placemarks, error) in
@@ -37,8 +44,12 @@ struct LocationView: View {
             }
             
             HStack {
+                
+                //display latitude of location
                 Text("Latitude:")
                 TextField("Location Name", text: self.$location.boundLat, onEditingChanged: { _ in try? self.viewContext.save() }, onCommit: {
+                    
+                    //auto-update map, address, and longitude when address is updated
                     guard let latitude = CLLocationDegrees(self.location.boundLat), let longitude = CLLocationDegrees(self.location.boundLong) else {
                         print("Coordinates Invalid")
                         return
@@ -58,8 +69,12 @@ struct LocationView: View {
             }
             
             HStack {
+                
+                //display longitude of location
                 Text("Longitude:")
                 TextField("Location Name", text: self.$location.boundLong, onEditingChanged: { _ in try? self.viewContext.save() }, onCommit: {
+                    
+                    //auto-update map, address, and latitude when address is updated
                     guard let latitude = CLLocationDegrees(self.location.boundLat), let longitude = CLLocationDegrees(self.location.boundLong) else {
                         print("Coordinates Invalid")
                         return
@@ -77,6 +92,7 @@ struct LocationView: View {
                     }
                 })
             }
-            Spacer()        }
+            Spacer()
+        }
     }
 }

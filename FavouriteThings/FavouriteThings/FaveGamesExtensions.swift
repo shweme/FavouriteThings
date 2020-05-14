@@ -8,7 +8,7 @@
 
 import CoreData
 
-//allows CoreData optionals to be unwrapped forentity FaveGames
+//allows CoreData optionals to be unwrapped for entity FaveGames
 extension FaveGames {
     var boundTitle: String {
         get { title ?? "" }

@@ -10,6 +10,7 @@ import CoreData
 import CoreLocation
 import MapKit
 
+//allows core data optionals to be unwrapped for entity Location
 extension Location {
     
     var boundName: String {

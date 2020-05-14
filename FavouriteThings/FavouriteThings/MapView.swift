@@ -2,6 +2,8 @@
 //  MapView.swift
 //  FavouriteThings
 //
+//  This View is for diplaying the map and auto-updating map when coordinate are changed.
+//
 //  Created by Shweta Mehta on 14/5/20.
 //  Copyright © 2020 Shweta Mehta. All rights reserved.
 //

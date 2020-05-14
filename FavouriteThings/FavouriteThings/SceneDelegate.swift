@@ -2,6 +2,11 @@
 //  SceneDelegate.swift
 //  FavouriteThings
 //
+//  The code in this section allows the app to
+//      Provide saving capabilities when changes are made;
+//      Passes above capabilities to the main view: Content View; and
+//      Provide default data to be loaded when there's no previous data.
+//
 //  Created by Shweta Mehta on 17/4/20.
 //  Copyright © 2020 Shweta Mehta. All rights reserved.
 //
@@ -27,9 +32,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         do {
             fg = try context.fetch(req)
-            if fg.count == 0 { //if there is no content, creating and loading default data
+            if fg.count == 0 {
+                //if there is no content, creating and loading default data
                 NSEntityDescription.insertNewObject(forEntityName: "FaveGames", into: context)
                 fg = try context.fetch(req)
+                
                 //Secret Hitler
                 let sh = Games(context: context)
                 sh.games = fg.first
@@ -45,10 +52,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 sh.field3 = "Published in"
                 sh.field4 = "Skills required"
                 let l = Location(context: context)
+                //providing information for location associated to Secret Hitler
                 //l.availabilityLocation = sh
                 l.locationName = "186 Brunswick St, Fortitude Valley QLD 4006"
-                l.latitudeString = "0.0"
-                l.longitudeString = "0.0"
+                l.latitudeString = "-27.4559082"
+                l.longitudeString = "153.0320233"
                 
             
                 //Settlers of Catan
@@ -66,10 +74,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 sc.field3 = "Published in"
                 sc.field4 = "Skills required"
                 let lo = Location(context: context)
+                //providing information for location associated to Settler of Catan
                 //lo.availabilityLocation = sc
                 lo.locationName = "186 Brunswick St, Fortitude Valley QLD 4006"
-                lo.latitudeString = "0.0"
-                lo.longitudeString = "0.0"
+                lo.latitudeString = "-27.4559082"
+                lo.longitudeString = "153.0320233"
                 
                 
                 //Unstable Unicorns
@@ -87,10 +96,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 uu.field3 = "Published in"
                 uu.field4 = "Skills required"
                 let loc = Location(context: context)
+                //providing information for location associated to Unstable Unicorns
                 //loc.availabilityLocation = uu
                 loc.locationName = "186 Brunswick St, Fortitude Valley QLD 4006"
-                loc.latitudeString = "0.0"
-                loc.longitudeString = "0.0"
+                loc.latitudeString = "-27.4559082"
+                loc.longitudeString = "153.0320233"
                 
                 try? context.save()
             }

@@ -15,6 +15,7 @@ struct RowItem: View {
     @ObservedObject var rowGame: Games //contains instance of a singular character
     var body: some View {
         HStack {
+            //download image related to this item
             imgDownload(rowGame.url ?? "Default")
                 .resizable()
                 .aspectRatio(contentMode: .fit)

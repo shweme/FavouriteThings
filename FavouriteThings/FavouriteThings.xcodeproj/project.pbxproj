@@ -24,7 +24,6 @@
 		AD66A46624494DA500361BF8 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD66A46524494DA500361BF8 /* DetailView.swift */; };
 		ADAB9B85245A8C410048B0B3 /* FaveGamesExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB9B84245A8C410048B0B3 /* FaveGamesExtensions.swift */; };
 		ADAB9B87245A8FD60048B0B3 /* GamesExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB9B86245A8FD60048B0B3 /* GamesExtension.swift */; };
-		ADF3BE29244E94A200C3BC6C /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF3BE28244E94A200C3BC6C /* Event.swift */; };
 		DFD87F0C246B967500284B1B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFD87F0B246B967500284B1B /* CoreLocation.framework */; };
 		DFD87F0E246B96D700284B1B /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD87F0D246B96D700284B1B /* LocationView.swift */; };
 		DFD87F10246BC24900284B1B /* LocationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD87F0F246BC24900284B1B /* LocationExtension.swift */; };
@@ -74,7 +73,6 @@
 		AD66A46524494DA500361BF8 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		ADAB9B84245A8C410048B0B3 /* FaveGamesExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaveGamesExtensions.swift; sourceTree = "<group>"; };
 		ADAB9B86245A8FD60048B0B3 /* GamesExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesExtension.swift; sourceTree = "<group>"; };
-		ADF3BE28244E94A200C3BC6C /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		DFD87F0B246B967500284B1B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		DFD87F0D246B96D700284B1B /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 		DFD87F0F246BC24900284B1B /* LocationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationExtension.swift; sourceTree = "<group>"; };
@@ -136,19 +134,18 @@
 			children = (
 				AD66A4282449417B00361BF8 /* AppDelegate.swift */,
 				AD66A42A2449417B00361BF8 /* SceneDelegate.swift */,
-				ADF3BE28244E94A200C3BC6C /* Event.swift */,
 				AD66A42F2449417B00361BF8 /* ContentView.swift */,
 				AD66A46124494B5800361BF8 /* MasterView.swift */,
 				AD66A46324494CBE00361BF8 /* RowItem.swift */,
 				AD66A46524494DA500361BF8 /* DetailView.swift */,
 				DFD87F0D246B96D700284B1B /* LocationView.swift */,
 				DFD87F13246D073D00284B1B /* MapView.swift */,
+				AD66A45D2449428600361BF8 /* ImageDownloading.swift */,
+				DFD87F15246D1D0200284B1B /* Keyboard.swift */,
 				AD0D0438245A88F900596BEB /* FavouriteThings.xcdatamodeld */,
 				ADAB9B86245A8FD60048B0B3 /* GamesExtension.swift */,
 				ADAB9B84245A8C410048B0B3 /* FaveGamesExtensions.swift */,
 				DFD87F0F246BC24900284B1B /* LocationExtension.swift */,
-				AD66A45D2449428600361BF8 /* ImageDownloading.swift */,
-				DFD87F15246D1D0200284B1B /* Keyboard.swift */,
 				AD66A45B2449424500361BF8 /* Gs.swift */,
 				AD66A45F2449447A00361BF8 /* FGs.swift */,
 				AD66A4362449417C00361BF8 /* LaunchScreen.storyboard */,
@@ -325,7 +322,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADF3BE29244E94A200C3BC6C /* Event.swift in Sources */,
 				DFD87F14246D073D00284B1B /* MapView.swift in Sources */,
 				AD66A4292449417B00361BF8 /* AppDelegate.swift in Sources */,
 				AD66A46224494B5800361BF8 /* MasterView.swift in Sources */,
