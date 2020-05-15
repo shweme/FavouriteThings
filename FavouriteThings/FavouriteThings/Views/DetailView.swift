@@ -92,7 +92,7 @@ struct DetailView: View {
                 
                 //Navigation link to location that this game is available at
                 NavigationLink(destination: LocationView(location: game.availabilityLocation ?? Location(context: viewContext))) {
-                    Text("View a Map of where to Buy ThiS GAME")
+                    Text("Where can I play this game?")
                 }
                 
                 Spacer(minLength: 25)

@@ -132,24 +132,15 @@
 		AD66A4272449417B00361BF8 /* FavouriteThings */ = {
 			isa = PBXGroup;
 			children = (
-				AD66A4282449417B00361BF8 /* AppDelegate.swift */,
-				AD66A42A2449417B00361BF8 /* SceneDelegate.swift */,
-				AD66A42F2449417B00361BF8 /* ContentView.swift */,
-				AD66A46124494B5800361BF8 /* MasterView.swift */,
-				AD66A46324494CBE00361BF8 /* RowItem.swift */,
-				AD66A46524494DA500361BF8 /* DetailView.swift */,
-				DFD87F0D246B96D700284B1B /* LocationView.swift */,
-				DFD87F13246D073D00284B1B /* MapView.swift */,
+				DFD87F1C246E207400284B1B /* Controllers */,
+				DFD87F1A246E202400284B1B /* Views */,
+				DFD87F19246E200600284B1B /* ModelExtensions */,
+				DFD87F1B246E204200284B1B /* Old Model */,
+				AD0D0438245A88F900596BEB /* FavouriteThings.xcdatamodeld */,
 				AD66A45D2449428600361BF8 /* ImageDownloading.swift */,
 				DFD87F15246D1D0200284B1B /* Keyboard.swift */,
-				AD0D0438245A88F900596BEB /* FavouriteThings.xcdatamodeld */,
-				ADAB9B86245A8FD60048B0B3 /* GamesExtension.swift */,
-				ADAB9B84245A8C410048B0B3 /* FaveGamesExtensions.swift */,
-				DFD87F0F246BC24900284B1B /* LocationExtension.swift */,
-				AD66A45B2449424500361BF8 /* Gs.swift */,
-				AD66A45F2449447A00361BF8 /* FGs.swift */,
-				AD66A4362449417C00361BF8 /* LaunchScreen.storyboard */,
 				AD66A4392449417C00361BF8 /* Info.plist */,
+				AD66A4362449417C00361BF8 /* LaunchScreen.storyboard */,
 				AD66A4312449417C00361BF8 /* Assets.xcassets */,
 				AD66A4332449417C00361BF8 /* Preview Content */,
 			);
@@ -189,6 +180,47 @@
 				DFD87F0B246B967500284B1B /* CoreLocation.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DFD87F19246E200600284B1B /* ModelExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				ADAB9B86245A8FD60048B0B3 /* GamesExtension.swift */,
+				ADAB9B84245A8C410048B0B3 /* FaveGamesExtensions.swift */,
+				DFD87F0F246BC24900284B1B /* LocationExtension.swift */,
+			);
+			path = ModelExtensions;
+			sourceTree = "<group>";
+		};
+		DFD87F1A246E202400284B1B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AD66A42F2449417B00361BF8 /* ContentView.swift */,
+				AD66A46124494B5800361BF8 /* MasterView.swift */,
+				AD66A46324494CBE00361BF8 /* RowItem.swift */,
+				AD66A46524494DA500361BF8 /* DetailView.swift */,
+				DFD87F0D246B96D700284B1B /* LocationView.swift */,
+				DFD87F13246D073D00284B1B /* MapView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DFD87F1B246E204200284B1B /* Old Model */ = {
+			isa = PBXGroup;
+			children = (
+				AD66A45B2449424500361BF8 /* Gs.swift */,
+				AD66A45F2449447A00361BF8 /* FGs.swift */,
+			);
+			path = "Old Model";
+			sourceTree = "<group>";
+		};
+		DFD87F1C246E207400284B1B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AD66A4282449417B00361BF8 /* AppDelegate.swift */,
+				AD66A42A2449417B00361BF8 /* SceneDelegate.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -17,15 +17,20 @@ struct MapView: UIViewRepresentable {
     
     func makeUIView(context: Context) -> MKMapView {
         let mapView = MKMapView(frame: .zero)
+        mapView.delegate = location
         return mapView
     }
     
     func updateUIView(_ mapView: MKMapView, context: Context) {
+        guard !location.isUpdating else {
+            return
+        }
         let latDouble = Double(self.location.boundLat)
         let longDouble = Double(self.location.boundLong)
         let target = CLLocationCoordinate2D(latitude: latDouble ?? 0, longitude: longDouble ?? 0)
-        let region = MKCoordinateRegion(center: target, latitudinalMeters: 10_000, longitudinalMeters: 10_000)
+        let region = MKCoordinateRegion(center: target, latitudinalMeters: 100, longitudinalMeters: 100)
         mapView.setRegion(region, animated: true)
     }
+    
 }
 
