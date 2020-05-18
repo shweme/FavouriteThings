@@ -135,6 +135,7 @@
 				DFD87F1C246E207400284B1B /* Controllers */,
 				DFD87F1A246E202400284B1B /* Views */,
 				AD0D0438245A88F900596BEB /* FavouriteThings.xcdatamodeld */,
+				DFD87F1F246E6CDE00284B1B /* LocationDelegate.swift */,
 				DFD87F19246E200600284B1B /* ModelExtensions */,
 				DFD87F1B246E204200284B1B /* Old Model */,
 				AD66A45D2449428600361BF8 /* ImageDownloading.swift */,
@@ -187,7 +188,6 @@
 			children = (
 				ADAB9B86245A8FD60048B0B3 /* GamesExtension.swift */,
 				ADAB9B84245A8C410048B0B3 /* FaveGamesExtensions.swift */,
-				DFD87F1F246E6CDE00284B1B /* LocationDelegate.swift */,
 			);
 			path = ModelExtensions;
 			sourceTree = "<group>";
