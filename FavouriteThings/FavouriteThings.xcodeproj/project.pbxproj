@@ -26,10 +26,10 @@
 		ADAB9B87245A8FD60048B0B3 /* GamesExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB9B86245A8FD60048B0B3 /* GamesExtension.swift */; };
 		DFD87F0C246B967500284B1B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFD87F0B246B967500284B1B /* CoreLocation.framework */; };
 		DFD87F0E246B96D700284B1B /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD87F0D246B96D700284B1B /* LocationView.swift */; };
-		DFD87F10246BC24900284B1B /* LocationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD87F0F246BC24900284B1B /* LocationExtension.swift */; };
 		DFD87F12246CF37100284B1B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFD87F11246CF37100284B1B /* MapKit.framework */; };
 		DFD87F14246D073D00284B1B /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD87F13246D073D00284B1B /* MapView.swift */; };
 		DFD87F16246D1D0300284B1B /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD87F15246D1D0200284B1B /* Keyboard.swift */; };
+		DFD87F20246E6CDE00284B1B /* LocationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD87F1F246E6CDE00284B1B /* LocationDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,10 +75,10 @@
 		ADAB9B86245A8FD60048B0B3 /* GamesExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesExtension.swift; sourceTree = "<group>"; };
 		DFD87F0B246B967500284B1B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		DFD87F0D246B96D700284B1B /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
-		DFD87F0F246BC24900284B1B /* LocationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationExtension.swift; sourceTree = "<group>"; };
 		DFD87F11246CF37100284B1B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		DFD87F13246D073D00284B1B /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		DFD87F15246D1D0200284B1B /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
+		DFD87F1F246E6CDE00284B1B /* LocationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,9 +134,9 @@
 			children = (
 				DFD87F1C246E207400284B1B /* Controllers */,
 				DFD87F1A246E202400284B1B /* Views */,
+				AD0D0438245A88F900596BEB /* FavouriteThings.xcdatamodeld */,
 				DFD87F19246E200600284B1B /* ModelExtensions */,
 				DFD87F1B246E204200284B1B /* Old Model */,
-				AD0D0438245A88F900596BEB /* FavouriteThings.xcdatamodeld */,
 				AD66A45D2449428600361BF8 /* ImageDownloading.swift */,
 				DFD87F15246D1D0200284B1B /* Keyboard.swift */,
 				AD66A4392449417C00361BF8 /* Info.plist */,
@@ -187,7 +187,7 @@
 			children = (
 				ADAB9B86245A8FD60048B0B3 /* GamesExtension.swift */,
 				ADAB9B84245A8C410048B0B3 /* FaveGamesExtensions.swift */,
-				DFD87F0F246BC24900284B1B /* LocationExtension.swift */,
+				DFD87F1F246E6CDE00284B1B /* LocationDelegate.swift */,
 			);
 			path = ModelExtensions;
 			sourceTree = "<group>";
@@ -357,9 +357,9 @@
 				DFD87F14246D073D00284B1B /* MapView.swift in Sources */,
 				AD66A4292449417B00361BF8 /* AppDelegate.swift in Sources */,
 				AD66A46224494B5800361BF8 /* MasterView.swift in Sources */,
-				DFD87F10246BC24900284B1B /* LocationExtension.swift in Sources */,
 				AD0D043A245A88F900596BEB /* FavouriteThings.xcdatamodeld in Sources */,
 				AD66A46624494DA500361BF8 /* DetailView.swift in Sources */,
+				DFD87F20246E6CDE00284B1B /* LocationDelegate.swift in Sources */,
 				AD66A4302449417B00361BF8 /* ContentView.swift in Sources */,
 				DFD87F16246D1D0300284B1B /* Keyboard.swift in Sources */,
 				AD66A45E2449428600361BF8 /* ImageDownloading.swift in Sources */,
@@ -536,6 +536,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"FavouriteThings/Preview Content\"";
+				DEVELOPMENT_TEAM = 22UA9655KV;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = FavouriteThings/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

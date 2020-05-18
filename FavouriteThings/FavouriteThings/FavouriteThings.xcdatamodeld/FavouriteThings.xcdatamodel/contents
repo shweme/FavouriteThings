@@ -9,6 +9,9 @@
         <attribute name="field2" attributeType="String" defaultValueString="Play time"/>
         <attribute name="field3" attributeType="String" defaultValueString="Published in"/>
         <attribute name="field4" attributeType="String" defaultValueString="Skills required"/>
+        <attribute name="latitudeString" attributeType="String" defaultValueString="-27.4559082"/>
+        <attribute name="locationName" attributeType="String" defaultValueString="186 Brunswick St, Fortitude Valley QLD 4006"/>
+        <attribute name="longitudeString" attributeType="String" defaultValueString="153.0320233"/>
         <attribute name="name" attributeType="String" defaultValueString=""/>
         <attribute name="notes" attributeType="String" defaultValueString=""/>
         <attribute name="players" attributeType="String" defaultValueString=""/>
@@ -16,19 +19,10 @@
         <attribute name="published" attributeType="String" defaultValueString=""/>
         <attribute name="skills" attributeType="String" defaultValueString=""/>
         <attribute name="url" optional="YES" attributeType="String"/>
-        <relationship name="availabilityLocation" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="availabilityLocation" inverseEntity="Location"/>
         <relationship name="games" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FaveGames" inverseName="games" inverseEntity="FaveGames"/>
-    </entity>
-    <entity name="Location" representedClassName="Location" syncable="YES" codeGenerationType="class">
-        <attribute name="isUpdating" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
-        <attribute name="latitudeString" attributeType="String" defaultValueString="-27.4559082"/>
-        <attribute name="locationName" attributeType="String" defaultValueString="186 Brunswick St, Fortitude Valley QLD 4006"/>
-        <attribute name="longitudeString" attributeType="String" defaultValueString="153.0320233"/>
-        <relationship name="availabilityLocation" maxCount="1" deletionRule="Nullify" ordered="YES" destinationEntity="Games" inverseName="availabilityLocation" inverseEntity="Games"/>
     </entity>
     <elements>
         <element name="FaveGames" positionX="-99.68359375" positionY="236.80078125" width="128" height="73"/>
-        <element name="Games" positionX="-399.51171875" positionY="72.68359375" width="128" height="238"/>
-        <element name="Location" positionX="-95.8515625" positionY="77.0234375" width="128" height="118"/>
+        <element name="Games" positionX="-399.51171875" positionY="72.68359375" width="128" height="268"/>
     </elements>
 </model>

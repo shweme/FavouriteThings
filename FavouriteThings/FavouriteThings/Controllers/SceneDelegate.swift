@@ -51,12 +51,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 sh.field2 = "Play time"
                 sh.field3 = "Published in"
                 sh.field4 = "Skills required"
-                let l = Location(context: context)
                 //providing information for location associated to Secret Hitler
-                //l.availabilityLocation = sh
-                l.locationName = "186 Brunswick St, Fortitude Valley QLD 4006"
-                l.latitudeString = "-27.4559082"
-                l.longitudeString = "153.0320233"
+//                sh.locationName = "186 Brunswick St, Fortitude Valley QLD 4006"
+//                sh.latitudeString = "-27.4559082"
+//                sh.longitudeString = "153.0320233"
                 
             
                 //Settlers of Catan
@@ -73,12 +71,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 sc.field2 = "Play time"
                 sc.field3 = "Published in"
                 sc.field4 = "Skills required"
-                let lo = Location(context: context)
                 //providing information for location associated to Settler of Catan
-                //lo.availabilityLocation = sc
-                lo.locationName = "186 Brunswick St, Fortitude Valley QLD 4006"
-                lo.latitudeString = "-27.4559082"
-                lo.longitudeString = "153.0320233"
+//                sh.locationName = "186 Brunswick St, Fortitude Valley QLD 4006"
+//                sh.latitudeString = "-27.4559082"
+//                sh.longitudeString = "153.0320233"
                 
                 
                 //Unstable Unicorns
@@ -95,12 +91,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 uu.field2 = "Play time"
                 uu.field3 = "Published in"
                 uu.field4 = "Skills required"
-                let loc = Location(context: context)
                 //providing information for location associated to Unstable Unicorns
-                //loc.availabilityLocation = uu
-                loc.locationName = "186 Brunswick St, Fortitude Valley QLD 4006"
-                loc.latitudeString = "-27.4559082"
-                loc.longitudeString = "153.0320233"
+//                sh.locationName = "186 Brunswick St, Fortitude Valley QLD 4006"
+//                sh.latitudeString = "-27.4559082"
+//                sh.longitudeString = "153.0320233"
                 
                 try? context.save()
             }

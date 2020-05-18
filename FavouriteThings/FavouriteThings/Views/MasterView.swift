@@ -33,7 +33,7 @@ struct MasterView: View {
             List {
                 //displaying all games in stored array of Games
                 ForEach(game.children, id: \.self)  { item in
-                    NavigationLink(destination: DetailView(game: item)){
+                    NavigationLink(destination: DetailView(game: item, tUrl: item.url ?? "")){
                         RowItem(rowGame: item)
                     }
                 }.onDelete {

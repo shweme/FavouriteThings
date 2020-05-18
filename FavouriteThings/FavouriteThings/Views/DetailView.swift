@@ -13,7 +13,7 @@ import SwiftUI
 struct DetailView: View {
     @ObservedObject var game: Games //singular instance of People containing data of character
     @ObservedObject var keyboard = Keyboard()
-    @State var tUrl: String = "" //temporary variable to hold user-entered URL
+    @State var tUrl: String //temporary variable to hold user-entered URL
     @Environment(\.managedObjectContext) var viewContext
     
     var body: some View {
@@ -35,7 +35,7 @@ struct DetailView: View {
                     .multilineTextAlignment(.center)
                 
                 //Name of the Game
-                TextField("Game's name", text: $game.boundName, onEditingChanged: {
+                TextField("Name", text: $game.boundName, onEditingChanged: {
                     _ in try? self.viewContext.save()
                 })
                     .font(Font.system(.largeTitle).bold())
@@ -91,8 +91,8 @@ struct DetailView: View {
                 }
                 
                 //Navigation link to location that this game is available at
-                NavigationLink(destination: LocationView(location: game.availabilityLocation ?? Location(context: viewContext))) {
-                    Text("Where can I play this game?")
+                NavigationLink(destination: LocationView(location: game, tName: game.locName, tLat: game.locLat, tLong: game.locLong)) {
+                    Text("Where can I get this?")
                 }
                 
                 Spacer(minLength: 25)
@@ -107,7 +107,7 @@ struct DetailView: View {
                     _ in try? self.viewContext.save()
                 }) .textFieldStyle(RoundedBorderTextFieldStyle())
                 }
-            } .frame(width: UIScreen.main.bounds.width-50, alignment: .center )
+            }
         } .offset(x: 0, y: CGFloat(-keyboard.h))
     }
 }

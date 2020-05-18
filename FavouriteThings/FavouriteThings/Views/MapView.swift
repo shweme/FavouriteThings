@@ -13,24 +13,22 @@ import CoreLocation
 import MapKit
 
 struct MapView: UIViewRepresentable {
-    @ObservedObject var location: Location
+    @ObservedObject var location: Games
+    @ObservedObject var locdel: LocationDelegate
     
     func makeUIView(context: Context) -> MKMapView {
         let mapView = MKMapView(frame: .zero)
-        mapView.delegate = location
+        mapView.delegate = locdel
+        
         return mapView
     }
     
     func updateUIView(_ mapView: MKMapView, context: Context) {
-        guard !location.isUpdating else {
-            return
-        }
-        let latDouble = Double(self.location.boundLat)
-        let longDouble = Double(self.location.boundLong)
-        let target = CLLocationCoordinate2D(latitude: latDouble ?? 0, longitude: longDouble ?? 0)
-        let region = MKCoordinateRegion(center: target, latitudinalMeters: 100, longitudinalMeters: 100)
+//        guard !locdel.isUpdating else { return }
+        
+        let target = CLLocationCoordinate2D(latitude: Double(self.location.locLat) ?? 0, longitude: Double(self.location.locLong) ?? 0)
+        let region = MKCoordinateRegion(center: target, latitudinalMeters: 5_000, longitudinalMeters: 5_000)
         mapView.setRegion(region, animated: true)
     }
-    
 }
 

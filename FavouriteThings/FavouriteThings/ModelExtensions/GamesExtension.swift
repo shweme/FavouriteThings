@@ -60,5 +60,19 @@ extension Games {
         set { field4 = newValue }
     }
     
+    var locName: String {
+        get { locationName ?? "" }
+        set { locationName = newValue }
+    }
+    
+    var locLat: String {
+        get { latitudeString ?? "" }
+        set { latitudeString = newValue }
+    }
+    
+    var locLong: String {
+        get { longitudeString ?? "" }
+        set { longitudeString = newValue }
+    }
     
 }
